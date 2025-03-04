@@ -1,0 +1,103 @@
+/* Опишите в этом файле все keyframes для проекта и стили анимаций иконки Like.
+
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ like-icon — для svg-иконки анимированного сердца
+✦ card__like-button — для кнопки Like рядом с иконкой
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
+✦ button__text — для обозначения текстового элемента внутри кнопки
+
+*/
+
+.sparks {
+  opacity: 0;
+}
+
+.core {
+  fill: #fff;
+  transition: fill 0.3 0.03s;
+}
+
+.main-body {
+  fill: #fff;
+  transition: fill 0.3s;
+}
+
+.like-icon.is-liked .core,
+.like-icon.is-liked .sparks,
+.like-icon.is-liked .main-body {
+  fill: var(--heart-color);
+  transition: fill 0.3s;
+  animation:
+    scale 0.3s ease-in 0.1s,
+    sparks 0.3s ease-in 0.3s;
+  transform-origin: center;
+}
+
+.like-icon:hover .heart .core {
+  fill: var(--accent-color);
+  transition: fill 0.3s;
+}
+
+.like-icon:hover .heart .main-body {
+  fill: var(--accent-color);
+  transition: fill 0.3s 0.05s;
+}
+
+.like-icon:active .heart .core {
+  fill: var(--heart-color);
+  transition: fill 0.3s;
+}
+
+.like-icon:active .heart .main-body {
+  fill: var(--heart-color);
+  transition: fill 0.3s 0.05s;
+}
+
+.like-icon.is-liked:hover .heart .core {
+  fill: var(--heart-color);
+  transition: fill 0.3s;
+}
+
+.like-icon.is-liked:hover .heart .main-body {
+  fill: var(--heart-color);
+  transition: fill 0.3s 0.05s;
+}
+
+@keyframes scale {
+
+  0% {
+    scale: 1.25;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes sparks {
+
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.like-icon .heart .contour {
+  /*  Перекрашивание контура обратно в черный */
+  fill: var(--contour-heart-color);
+  transition: fill 0.1s ease-in;
+}
+
+.like-icon.is-liked .heart .contour {
+  fill: var(--heart-color);
+  transition: fill 0.3s 0.06s;
+  animation:
+    scale 0.3s ease-in 0.1s,
+    sparks 0.3s ease-in 0.3s;
+  transform-origin: center;
+}
