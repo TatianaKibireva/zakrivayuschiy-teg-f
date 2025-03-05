@@ -36,11 +36,16 @@
     ),
     linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .header {
-  block-size: clamp(20.438rem, 19.535rem + 3.85vw, 23rem);
   margin-block-start: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .adaptive-container {
@@ -52,19 +57,11 @@
   border: 2px solid var(--accent-color);
 }
 
-.header__group {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
 .header-logo {
   font-size: clamp(3.063rem, 2.71rem + 1.502vi, 4.063rem);
   font-family: var(--accent-font);
   text-transform: uppercase;
+  margin-block-start: clamp(7.5rem, 7.324rem + 0.751vw, 8rem);
 }
 
 .header-title {
@@ -72,6 +69,7 @@
   font-family: var(--accent-font);
   font-weight: var(--content-card-font-weight);
   text-transform: uppercase;
+  margin-block-end: clamp(7.5rem, 7.324rem + 0.751vw, 8rem);
 }
 
 .main {
@@ -83,7 +81,6 @@
 .card {
   display: flex;
   flex-direction: column;
-  gap: 25px;
   inline-size: clamp(23.438rem, 16.285rem + 30.516vw, 43.75rem);
 }
 
@@ -95,12 +92,12 @@
   inline-size: clamp(21.938rem, 15.093rem + 29.202vw, 41.375rem);
   padding-block: 5px;
   padding-inline: 10px;
-  max-block-size: 52px;
 }
 
 .card-area-img {
   position: relative;
   border-block: 2px solid var(--accent-color);
+  margin-block-end: 25px;
 }
 
 .card-logo {
@@ -136,8 +133,7 @@
   display: block;
   margin: 0;
   inline-size: 100%;
-  /* block-size: clamp(23.438rem, 16.373rem + 30.141vw, 43.5rem); */
-  block-size: clamp(23.188rem, 16.035rem + 30.516vw, 43.5rem);
+  aspect-ratio: 1/1;
   object-fit: cover;
 }
 
@@ -155,8 +151,6 @@
   font-size: var(--cards-title-font-size);
   color: var(--accent-color);
   line-height: 21px;
-  /* Чтобы обеспечить перенос слов в соответствии с макетом */
-  letter-spacing: 0.4px;
   inline-size: clamp(19.813rem, 12.572rem + 30.892vw, 40.375rem);
 }
 
@@ -175,6 +169,7 @@
   align-items: center;
   width: 44px;
   height: 34px;
+  transition: outline 0.3s ease;
 }
 
 .card__icon-button:focus {
@@ -183,46 +178,31 @@
 
 .card__icon-button:focus-visible {
   outline: 2px solid var(--accent-color);
-  transition: outline 0.3s ease;
 }
 
 .card__like-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   inline-size: 130px;
   block-size: 38px;
   background: #fff;
-  position: relative;
-  overflow: hidden;
-}
-
-.card__like-button:focus {
-  outline: none;
-  box-shadow: 2px 2px 0 0 var(--accent-color);
   transition: box-shadow 0.3s ease;
-}
-
-.card__like-button::before {
-  content: ' ';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--accent-color);
-  transform: translateX(-100%);
-  transition: transform 0.5s ease-in-out;
-}
-
-.card__like-button:hover::before {
-  transform: translateX(0);
 }
 
 .button {
   border: 2px solid var(--accent-color);
   background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0 0 var(--accent-color);
 }
 
 .button__text {
@@ -232,16 +212,12 @@
 }
 
 .button-save {
-  display: flex;
   flex-direction: column;
   gap: 8px;
-  align-items: center;
-  justify-content: center;
   inline-size: clamp(19.125rem, 18.487rem + 2.723vw, 20.938rem);
   padding-block: 15px;
   margin-bottom: 100px;
-  position: relative;
-  overflow: hidden;
+  transition: box-shadow 0.3s ease;
 }
 
 .button-style {
@@ -249,13 +225,7 @@
   mix-blend-mode: difference;
 }
 
-.button-save:focus {
-  outline: none;
-  box-shadow: 2px 2px 0 0 var(--accent-color);
-  transition: box-shadow 0.3s ease;
-}
-
-.button-save::before {
+.button::before {
   content: ' ';
   position: absolute;
   top: 0;
@@ -267,7 +237,7 @@
   transition: transform 0.5s ease-in-out;
 }
 
-.button-save:hover::before {
+.button:hover::before {
   transform: translateX(0);
 }
 
@@ -305,6 +275,8 @@
   inline-size: clamp(12.375rem, 11.583rem + 3.38vw, 14.625rem);
   text-transform: uppercase;
   line-height: 150%;
+  font-family: var(--accent-font);
+  font-size: var(--cards-logo-font-size);
 }
 
 .button-close {
