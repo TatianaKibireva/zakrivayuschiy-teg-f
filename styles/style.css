@@ -26,14 +26,12 @@
   background-image:
     repeating-linear-gradient(
       to right,
-      #d3d3d3 2px,
-      rgb(211 211 211 / 0) 4px 6px
-    ),
+      #d3d3d3 0 2px,
+      rgb(211 211 211 / 0) 2px 4px),
     repeating-linear-gradient(
       to bottom,
-      #d3d3d3 2px,
-      rgb(211 211 211 / 0) 4px 6px
-    ),
+      #d3d3d3 0 2px,
+      rgb(211 211 211 / 0) 2px 4px),
     linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
   background-size: cover;
   background-attachment: fixed;
@@ -59,14 +57,14 @@
 
 .header-logo {
   font-size: clamp(3.063rem, 2.71rem + 1.502vi, 4.063rem);
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), sans-serif;
   text-transform: uppercase;
   margin-block-start: clamp(7.5rem, 7.324rem + 0.751vw, 8rem);
 }
 
 .header-title {
   font-size: clamp(0.875rem, 0.677rem + 0.845vi, 1.438rem);
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), sans-serif;
   font-weight: var(--content-card-font-weight);
   text-transform: uppercase;
   margin-block-end: clamp(7.5rem, 7.324rem + 0.751vw, 8rem);
@@ -86,6 +84,7 @@
 
 .card-title {
   font-family: var(--main-font), sans-serif;
+  font-variation-settings: 'wght' var(--title-card-font-weight);
   font-size: var(--cards-title-font-size);
   color: var(--accent-color);
   line-height: 22px;
@@ -101,7 +100,7 @@
 }
 
 .card-logo {
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), sans-serif;
   font-size: var(--cards-logo-font-size);
   text-transform: uppercase;
   color: var(--accent-color);
@@ -165,11 +164,15 @@
   background-color: transparent;
   border: none;
   display: flex;
-  flex-direction: column;
+ justify-content: center;
   align-items: center;
-  width: 44px;
-  height: 34px;
+  inline-size: 39px;
+  block-size: 34px;
   transition: outline 0.3s ease;
+}
+
+.like-icon {
+position: absolute;
 }
 
 .card__icon-button:focus {
@@ -206,7 +209,7 @@
 }
 
 .button__text {
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), sans-serif;
   font-size: var(--cards-logo-font-size);
   line-height: 90%;
 }
@@ -275,7 +278,7 @@
   inline-size: clamp(12.375rem, 11.583rem + 3.38vw, 14.625rem);
   text-transform: uppercase;
   line-height: 150%;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), sans-serif;
   font-size: var(--cards-logo-font-size);
 }
 
